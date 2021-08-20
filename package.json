@@ -50,6 +50,6 @@
     "scraper",
     "express",
     "anitube",
-    "request",
+    "request"
   ]
 }
