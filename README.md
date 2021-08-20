@@ -10,6 +10,8 @@ primeiro clone, dentro da pasta do projeto rode ```yarn``` ou ```npm install``` 
 Rode ```yarn dev``` ou ```npm run dev``` pra rodar no modo desenvolvedor
 Modo de produção rode ```yarn forever``` ou ```npm run forever```
 
+documentação completa da api disponível em ```/docs```
+
 
 ### Bugs
 - Geração automática de documentação com Swaggwer Autogen
