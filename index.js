@@ -16,7 +16,7 @@ app.get('*', (req, res) => {
   res.redirect('/docs')
 })
 
-const PORT = 9000
+let PORT = process.env.PORT || 3000
 
 server.listen(PORT, function () {
   console.log(`Running on port ${PORT}.`);
