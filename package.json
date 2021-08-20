@@ -12,7 +12,7 @@
   "bugs": "https://github.com/natanfeitosa/animes-api/issues",
   "repository": "github:natanfeitosa/animes-api",
   "scripts": {
-    "forever": "node ./index.js",
+    "start": "node ./index.js",
     "dev": "nodemon ./index.js",
     "autogen": "node ./swagger.js",
     "autogen:dev": "nodemon ./swagger.js"

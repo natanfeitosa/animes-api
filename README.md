@@ -8,7 +8,7 @@ Endpoints todos de método ```get```
 primeiro clone, dentro da pasta do projeto rode ```yarn``` ou ```npm install``` para instalar as dependências do projeto.
 
 Rode ```yarn dev``` ou ```npm run dev``` pra rodar no modo desenvolvedor
-Modo de produção rode ```yarn forever``` ou ```npm run forever```
+Modo de produção rode ```yarn start``` ou ```npm run start```
 
 documentação completa da api disponível em ```/docs```
 
