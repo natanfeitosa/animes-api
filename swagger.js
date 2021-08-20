@@ -9,7 +9,7 @@ const doc = {
     title: 'API para pegar animes ',
     description: 'Documentação gerada automagicamente por <b>swagger-autogen</b>.'
   },
-  host: 'animes.natanapps.repl.co',
+  host: 'all-animes.herokuapp.com',
   basePath: '/v1',
   schemes: ['http', 'https'],
   consumes: ['application/json'],
