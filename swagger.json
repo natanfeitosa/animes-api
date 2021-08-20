@@ -13,7 +13,7 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "animes.natanapps.repl.co",
+  "host": "all-animes.herokuapp.com",
   "basePath": "/v1",
   "schemes": [
     "https"
