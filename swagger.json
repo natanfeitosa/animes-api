@@ -1,0 +1,420 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API para pegar animes",
+    "description": "Documentação ...",
+    "contact": {
+      "name": "Natan Santos",
+      "email": "natansantosapps@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "animes.natanapps.repl.co",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "home",
+      "description": "Endpoint que retorna alguns animes separados em três seções: Mais assistidos, Animes recentes e Lançamentos do dia"
+    },
+    {
+      "name": "anime",
+      "description": "Retorna o anime no id passado por parametro."
+    },
+    {
+      "name": "animes",
+      "description": "Lista os animes disponíveis separados por paginação."
+    },
+    {
+      "name": "categoria",
+      "description": "Retorna todos os animes com base em uma categoria, separado por paginação."
+    },
+    {
+      "name": "pesquisar",
+      "description": "Endpoint de pesquisa fulltext."
+    },
+    {
+      "name": "episodio",
+      "description": "Retorna um determinado episodio no id passado."
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Lista de animes atualizada diariamente.",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Home"
+            }
+          },
+          "204": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Home"
+            }
+          },
+          "304": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Home"
+            }
+          }
+        }
+      }
+    },
+    "/a/{id}": {
+      "get": {
+        "tags": [
+          "anime"
+        ],
+        "summary": "Encontra anime por id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de anime",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Anime"
+            }
+          },
+          "404": {
+            "description": "Anime não encontrado",
+            "schema": {
+              "$ref": "#/definitions/Anime"
+            }
+          },
+          "500": {
+            "description": "Erro no servidor",
+            "schema": {
+              "$ref": "#/definitions/Anime"
+            }
+          }
+        }
+      }
+    },
+    "/animes": {
+      "get": {
+        "tags": [
+          "animes"
+        ],
+        "summary": "Lista de todos os animes em paginação.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "type": "integer"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filtra por legendado ou dublado",
+            "type": "string",
+            "enum": [
+              "leg",
+              "dub"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Animes"
+            }
+          },
+          "204": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Animes"
+            }
+          },
+          "304": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Animes"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/categoria/{cat}": {
+      "get": {
+        "tags": [
+          "categoria"
+        ],
+        "summary": "Lista de todos os animes em paginação.",
+        "parameters": [
+          {
+            "name": "cat",
+            "in": "path",
+            "description": "Nome da categoria",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "type": "integer"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filtra por legendado ou dublado",
+            "type": "string",
+            "enum": [
+              "leg",
+              "dub"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Animes"
+            }
+          },
+          "204": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Animes"
+            }
+          },
+          "304": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Animes"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/pesquisar/{text}": {
+      "get": {
+        "tags": [
+          "pesquisar"
+        ],
+        "summary": "Lista de todos os animes em paginação.",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "path",
+            "description": "Nome da categoria",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Número da página",
+            "type": "integer"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filtra por legendado ou dublado",
+            "type": "string",
+            "enum": [
+              "leg",
+              "dub"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Animes"
+            }
+          },
+          "204": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Animes"
+            }
+          },
+          "304": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Animes"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/episodio/{id}": {
+      "get": {
+        "tags": [
+          "episodio"
+        ],
+        "summary": "Encontra anime por id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de anime",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "206": {
+            "description": "vídeo do episódio"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Pagination": {
+      "type": "object",
+      "properties": {
+        "previous": {
+          "type": "integer"
+        },
+        "current": {
+          "type": "integer",
+          "default": 1
+        },
+        "next": {
+          "type": "integer"
+        },
+        "last": {
+          "type": "integer"
+        }
+      }
+    },
+    "Anime": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "link": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "is_subtitles": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Home": {
+      "type": "object",
+      "properties": {
+        "MAIS_VISTOS": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Anime"
+          }
+        },
+        "ANIMES_RECENTES": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Anime"
+          }
+        },
+        "LANCAMENTOS_DO_DIA": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Anime"
+          }
+        }
+      }
+    },
+    "Animes": {
+      "type": "object",
+      "properties": {
+        "animes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Anime"
+          }
+        },
+        "pagination": {
+          "type": "object",
+          "$ref": "#/definitions/Pagination"
+        }
+      }
+    },
+    "ApiErrorResponse": {
+      "type": "object",
+      "properties": {
+        "err": {
+          "type": "boolean",
+          "default": true
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

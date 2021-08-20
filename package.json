@@ -1,0 +1,51 @@
+{
+  "name": "animes api",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Natan Santos",
+    "email": "natansantosapps@gmail.com"
+  },
+  "description": "Api não oficial de animes",
+  "main": "index.js",
+  "private": true,
+  "bugs": "https://github.com/natanfeitosa/animes-api/issues",
+  "repository": "github:natanfeitosa/animes-api",
+  "scripts": {
+    "forever": "node ./index.js",
+    "dev": "nodemon ./index.js",
+    "autogen": "node ./swagger.js",
+    "autogen:dev": "nodemon ./swagger.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.1",
+    "express-api-cache": "^1.0.4",
+    "express-request-proxy": "^2.2.2",
+    "lodash": "^4.17.21",
+    "request": "^2.88.2",
+    "swagger-autogen": "^2.11.2",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "swagger.json",
+      "test/*",
+      "docs/*"
+    ],
+    "delay": 2580,
+    "legacyWatch": true
+  },
+  "keywords": [
+    "anime",
+    "api",
+    "web scraping",
+    "scraper",
+    "express",
+    "anitube",
+    "request",
+  ]
+}
