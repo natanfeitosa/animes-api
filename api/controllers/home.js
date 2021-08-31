@@ -14,7 +14,7 @@ exports.home = (_, res) => {
 
       sectionTitle = sectionTitle.startsWith('ANITUBE') ? 'Mais Vistos' : sectionTitle
 
-      Object.assign(objs, {[sectionTitle.toUpperCase()]: parseAnimes($(el))})
+      Object.assign(objs, {[sectionTitle.toUpperCase().replace(' ', '_')]: parseAnimes($(el))})
     })
 
     res.json(objs)

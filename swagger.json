@@ -232,7 +232,7 @@
         "tags": [
           "pesquisar"
         ],
-        "summary": "Lista de todos os animes em paginação.",
+        "summary": "Lista de todos correspondentes à pesquisa.",
         "parameters": [
           {
             "name": "text",
