@@ -1,5 +1,7 @@
 # Animes Api
 
+[![Run on Repl.it](https://repl.it/badge/github/natanfeitosa/animes-api)](https://repl.it/github/natanfeitosa/animes-api)
+
 Api não oficial de Animes
 
 Endpoints todos de método ```get```

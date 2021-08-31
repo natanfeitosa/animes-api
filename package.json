@@ -1,6 +1,6 @@
 {
-  "name": "animes api",
-  "version": "1.0.0",
+  "name": "animes-api",
+  "version": "1.0.82",
   "license": "MIT",
   "author": {
     "name": "Natan Santos",
@@ -13,12 +13,11 @@
   "repository": "github:natanfeitosa/animes-api",
   "scripts": {
     "start": "node ./index.js",
-    "dev": "nodemon ./index.js",
-    "autogen": "node ./swagger.js",
-    "autogen:dev": "nodemon ./swagger.js"
+    "dev": "NODE_ENV=development nodemon ./index.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-api-cache": "^1.0.4",
     "express-request-proxy": "^2.2.2",

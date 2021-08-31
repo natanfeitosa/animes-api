@@ -69,12 +69,6 @@
             "schema": {
               "$ref": "#/definitions/Home"
             }
-          },
-          "304": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/Home"
-            }
           }
         }
       }
@@ -164,12 +158,6 @@
             "schema": {
               "$ref": "#/definitions/ApiErrorResponse"
             }
-          },
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ApiErrorResponse"
-            }
           }
         }
       }
@@ -249,7 +237,7 @@
           {
             "name": "text",
             "in": "path",
-            "description": "Nome da categoria",
+            "description": "Texto/nome do anime a ser pesquisado.",
             "required": true,
             "type": "string"
           },
@@ -258,16 +246,6 @@
             "in": "query",
             "description": "Número da página",
             "type": "integer"
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Filtra por legendado ou dublado",
-            "type": "string",
-            "enum": [
-              "leg",
-              "dub"
-            ]
           }
         ],
         "responses": {

@@ -1,0 +1,7 @@
+language = "nodejs"
+run = "npm start"
+onBoot = "npm install"
+
+[packager]
+afterInstall="npm start"
+ignoredPaths=[".git"]
