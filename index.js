@@ -5,6 +5,7 @@ const routes = require('./api/routes')
 const { createServer } = require('http')
 const swagger_doc = require('./swagger.json')
 const swaggerUi = require('swagger-ui-express')
+const { base_api } = require('./api/constants')
 
 const app = express(),
   server = createServer(app)
@@ -15,9 +16,7 @@ app.use('/v1', cors(), routes)
 
 swagger_doc['info']['version'] = pkg['version']
 
-if (process.env.NODE_ENV == 'development'){
-    swagger_doc['host'] = 'animes-api.natanapps.repl.co'
-}
+swagger_doc['host'] = base_api.replace(/(\/v1\/?)|(https?\:\/\/)/g, '')
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swagger_doc))
 
