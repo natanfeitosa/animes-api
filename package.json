@@ -12,7 +12,7 @@
   "bugs": "https://github.com/natanfeitosa/animes-api/issues",
   "repository": "github:natanfeitosa/animes-api",
   "scripts": {
-    "start": "NODE_ENV=production node ./index.js",
+    "start": "node ./index.js",
     "dev": "NODE_ENV=development nodemon ./index.js"
   },
   "dependencies": {
