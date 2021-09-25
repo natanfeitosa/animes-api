@@ -15,11 +15,11 @@ exports.episode = (req, res, next) => {
 
   request(url, options, (_err, _res, body) => {
     if (_res.statusCode == 404) {
-      return returnError(_res, 'Página não encontrada.')
+      return returnError(res, 'Página não encontrada.')
     }
 
     if( _res.statusCode !== 200 || _err ){
-      return returnError(_res, 'Erro no servidor.', 500)
+      return returnError(res, 'Erro no servidor.', 500)
     }
     
     let $ = cheerio.load(body)
@@ -30,11 +30,11 @@ exports.episode = (req, res, next) => {
 
     request(redirectUrl, options, (_err, _res, body) => {
       if (_res.statusCode == 404) {
-        return returnError(_res, 'Página não encontrada.')
+        return returnError(res, 'Página não encontrada.')
       }
 
       if( _res.statusCode !== 200 || _err ){
-        return returnError(_res, 'Erro no servidor.', 500)
+        return returnError(res, 'Erro no servidor.', 500)
       }
       
       const $$ = cheerio.load(body)

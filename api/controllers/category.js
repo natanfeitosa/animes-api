@@ -14,11 +14,11 @@ exports.category = (req, res) => {
 
   request(url, options, (_err, _res, body) => {
     if (_res.statusCode == 404) {
-      return returnError(_res, 'Página não encontrada.')
+      return returnError(res, 'Página não encontrada.')
     }
 
     if( _res.statusCode !== 200 || _err ){
-      return returnError(_res, 'Erro no servidor.', 500)
+      return returnError(res, 'Erro no servidor.', 500)
     }
 
     const $ = cheerio.load(body)
