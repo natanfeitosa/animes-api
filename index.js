@@ -7,8 +7,8 @@ const swagger_doc = require('./swagger.json')
 const swaggerUi = require('swagger-ui-express')
 const { base_api } = require('./api/constants')
 
-const app = express(),
-  server = createServer(app)
+const app = express()
+const server = createServer(app)
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -24,8 +24,7 @@ app.get('*', (req, res) => {
   res.redirect('/docs')
 })
 
-let PORT = process.env.PORT || 3000
-
-server.listen(PORT, function () {
-  console.log(`Running on port ${PORT}.`);
+let port = process.env.PORT || 3000
+server.listen(port, function () {
+  console.log(`Running on port ${port}.`);
 });
