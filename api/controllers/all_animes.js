@@ -1,4 +1,4 @@
-const { paginate, setPagination, getQuery } = require('../../utils')
+const { getQuery, paginate, returnError, setPagination } = require('../../utils')
 const { parseAnimes } = require('../parses')
 const options = require('../../req-options')
 const request = require('request')

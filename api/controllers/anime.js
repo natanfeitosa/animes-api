@@ -1,4 +1,5 @@
 const { parseEpisodes } = require('../parses')
+const { returnError } = require('../../utils')
 const options = require('../../req-options')
 const request = require('request')
 const cheerio = require('cheerio')
